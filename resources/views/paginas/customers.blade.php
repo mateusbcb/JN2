@@ -29,13 +29,13 @@
                         </thead>
                         <tbody>
                             @foreach ($clientes as $cliente)    
-                            <tr onclick="link({{$cliente->id}})">
+                            <tr onclick="link({{$cliente->id}})" style="cursor: pointer">
                                 <td>{{ $cliente->nome }}</td>
                                 <td>{{ $cliente->telefone }}</td>
                                 <td>{{ $cliente->cpf }}</td>
                                 <td>{{ $cliente->placa_do_carro }}</td>
                                 <td>{{ \carbon\Carbon::create($cliente->created_at)->format('d-m-Y H:i:s') }}</td>
-                                <td>{{ \carbon\Carbon::create($cliente->updated_at)->settings(['locale' => 'pt_BR'])->diffForHumans() }}</td>
+                                <td>{{ \carbon\Carbon::create($cliente->updated_at)->settings(['locale' => 'pt_BR', 'timezone' => 'America/Sao_Paulo'])->diffForHumans() }}</td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -14,7 +14,6 @@
             <div class="col col-6 mx-auto">
                 <form class="row g-1" action="/cliente" method="POST">
                     @csrf
-                    <input type="hidden" name="id" value="{{$cliente[0]->id}}">
                     
                     <div class="col-md-12 mt-3 mb-3">
                         <label for="nome" class="form-label">Nome Completo</label>

@@ -13,7 +13,7 @@ class Customers extends Migration
      */
     public function up()
     {
-        Schema::create('custumers', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->string('telefone');
@@ -30,6 +30,6 @@ class Customers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('custumers');
+        Schema::dropIfExists('customers');
     }
 }

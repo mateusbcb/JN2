@@ -21,7 +21,7 @@ class CustomerController extends Controller
             
             $id_user = Auth::user()['id'];
 
-            $clientes = DB::table('custumers')
+            $clientes = DB::table('customers')
             ->select([
                 'id',
                 'nome',
@@ -59,16 +59,7 @@ class CustomerController extends Controller
 
             $id_user = Auth::user()['id'];
 
-            $custumer = DB::table('customers')
-            ->select('id')
-            ->where('id', '=', $req->id)
-            ->get();
-
-            if (count($custumer) > 0) {
-                return redirect()->back()->with('error', 'Cliente já cadastrado!');
-            }
-
-            DB::table('custumers')
+            DB::table('customers')
             ->insert([
                 'id_user' => $id_user,
                 'nome' => $req->nome,
@@ -90,7 +81,7 @@ class CustomerController extends Controller
     public function editar_cliete($id)
     {
         if (Auth::check()) {
-            $cliente = DB::table('custumers')
+            $cliente = DB::table('customers')
             ->select([
                 'id',
                 'nome',
@@ -117,7 +108,7 @@ class CustomerController extends Controller
     // Ação de remover Cliente
     public function editar_cliete_acton(Request $req)
     {
-        $cliente = DB::table('custumers')
+        $cliente = DB::table('customers')
         ->where('id', '=', $req->id)
         ->update([
             'nome' => $req->nome,
@@ -138,7 +129,7 @@ class CustomerController extends Controller
     public function remover_cliente($id)
     {
         if (Auth::check()) {
-            DB::table('custumers')
+            DB::table('customers')
             ->where('id', '=', $id)
             ->delete();
 
@@ -152,7 +143,7 @@ class CustomerController extends Controller
     public function consultar_cliente($id)
     {
         if (Auth::check()) {
-            $cliente = DB::table('custumers')
+            $cliente = DB::table('customers')
             ->select([
                 'id',
                 'nome',
@@ -183,7 +174,7 @@ class CustomerController extends Controller
             echo "<div>";
                 $search = $req->input('busca');
                 
-                $placa = DB::table('custumers')
+                $placa = DB::table('customers')
                 ->select([
                     'id',
                     'nome',

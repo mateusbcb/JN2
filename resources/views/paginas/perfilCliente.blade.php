@@ -15,7 +15,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3 border">
-                            <img src="img/profiles/{{$cliente[0]->id}}.jpg" alt="{{ $cliente[0]->nome }}">
+                            <img src="/img/profiles/{{$cliente[0]->id}}.jpg" alt="{{ $cliente[0]->nome }}" onerror="src='/img/profiles/blank.png'">
                         </div>
                         <div class="col-sm-9">
                             <div class="row">
